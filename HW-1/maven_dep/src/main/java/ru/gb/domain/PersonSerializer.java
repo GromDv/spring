@@ -1,9 +1,10 @@
-package ru.gb;
+package ru.gb.domain;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+import ru.gb.domain.Person;
 
 import java.lang.reflect.Type;
 

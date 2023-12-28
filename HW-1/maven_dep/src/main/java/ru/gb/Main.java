@@ -1,6 +1,9 @@
 package ru.gb;
 
 import com.google.gson.*;
+import ru.gb.domain.Person;
+import ru.gb.domain.PersonDeserializer;
+import ru.gb.domain.PersonSerializer;
 
 public class Main {
     public static void main(String[] args) {

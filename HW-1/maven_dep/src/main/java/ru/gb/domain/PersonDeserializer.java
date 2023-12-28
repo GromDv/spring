@@ -1,10 +1,11 @@
-package ru.gb;
+package ru.gb.domain;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import ru.gb.domain.Person;
 
 import java.lang.reflect.Type;
 
