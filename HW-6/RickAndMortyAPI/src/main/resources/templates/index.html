@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Rick & Morty API</title>
+    <style>
+        .folder {
+            display: flex;
+            padding: 10px;
+            margin: 10px;
+            width: 45%;
+            min-width: 360px;
+            border: 1px solid grey;
+            box-shadow: 5px 5px 8px #e4e4e4;
+            border-collapse: collapse;
+        }
+        .image {
+            width: 40%;
+        }
+        .inf {
+            padding: 15px 5px;
+        }
+    </style>
+</head>
+<body>
+<div th:switch="${list}">
+    <h2 th:case="null">No records found!</h2>
+    <div th:case="*">
+        <h2 style="text-align:center;">The Rick and Morty API</h2>
+        <div style="display: flex; flex-wrap:wrap; justify-content: center;">
+            <div th:each="person : ${list}"  class="folder">
+                <div class="image">
+                    <a th:href="@{/{id}(id=${person.id})}"><img th:src="${person.image}" width="100%"></a>
+                </div>
+                <div class="inf">
+                    <p>name: <a th:href="@{/{id}(id=${person.id})}" th:text="${person.name}" ></a></p>
+                    <p>status: <span th:text="${person.status}" class="ref"></span></p>
+                    <p>species: <span th:text="${person.species}" class="ref"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

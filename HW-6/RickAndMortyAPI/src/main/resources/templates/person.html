@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Rick & Morty API</title>
+    <style>
+        .folder {
+            display: flex;
+            padding: 10px;
+            margin: 10px auto;
+            width: 80%;
+            min-width: 360px;
+            border: 1px solid grey;
+            box-shadow: 5px 5px 8px #e4e4e4;
+            border-collapse: collapse;
+        }
+        .image {
+            width: 30%;
+        }
+        .inf {
+            padding: 15px 5px;
+            width: 70%;
+            overflow: overlay;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h2 th:text="${person.name}" style="text-align:center;"></h2>
+
+    <div class="folder">
+        <div class="image">
+            <img th:src="${person.image}" width="100%">
+        </div>
+        <div class="inf">
+            <p>name: <a th:text="${person.name}" ></a></p>
+            <p>status: <span th:text="${person.status}" class="ref"></span></p>
+            <p>species: <span th:text="${person.species}" class="ref"></span></p>
+            <p>type: <span th:text="${person.type}" class="ref"></span></p>
+            <p>gender: <span th:text="${person.gender}" class="ref"></span></p>
+            <p>image: <span th:text="${person.image}" class="ref"></span></p>
+            <p>url: <span th:text="${person.url}" class="ref"></span></p>
+            <p>created: <span th:text="${person.created}" class="ref"></span></p>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
