@@ -1,0 +1,16 @@
+server:
+  port: 8888
+
+spring:
+  output.ansi.enabled: ALWAYS
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:GromDv/spring-boot-configs.git
+          username: username
+          password: password
+          default-label: main
+          search-paths: "{application}"

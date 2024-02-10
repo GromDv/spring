@@ -1,0 +1,11 @@
+server:
+  port: 8083
+
+spring:
+  output.ansi.enabled: ALWAYS
+  application:
+    name: phoneBookMs
+  config:
+    enabled: false
+    import: optional:configserver:http://localhost:8888
+
