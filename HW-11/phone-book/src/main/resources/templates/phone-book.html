@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <style>
+        .btn {
+            color: red;
+            border: 1px solid gray;
+            padding: 0 5px;
+            background-color: #f0f0f0;
+            font-family: 'Arial';
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color:#d5cece;
+        }
+        .ref {
+            margin:0 10px;
+        }
+    </style>
+</head>
+<body>
+<div th:switch="${list}">
+    <h2 th:case="null">No records found!</h2>
+    <div th:case="*">
+        <h2>Телефонный справочник</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>номер</th>
+                <th>Адрес</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${list}">
+                <td><a th:href="@{ab-update?&id={id}(id=${user.id})}" th:text="${user.firstName}" class="ref" title="Редактировать"></a></td>
+                <td><a th:href="@{ab-update?&id={id}(id=${user.id})}" th:text="${user.lastName}" class="ref" title="Редактировать"></a></td>
+                <td><span th:text="${user.phone}" class="ref"></span></td>
+                <td><span th:text="${user.address}" class="ref"></span></td>
+                <td style="margin:0 10px;"><a th:href="@{/abonent-delete/{id}(id=${user.id})}" class="btn ref" title="Удалить">x</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/abonent-create" class="btn ref" style="padding: 5px 10px;">Добавить абонента</a></p>
+</div>
+</body>
+</html>
