@@ -1,0 +1,33 @@
+spring:
+  output.ansi.enabled: ALWAYS
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    h2:
+      console:
+        enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  show-sql: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+pb:
+  typeRepo: jpa   # jpa, list, jdbc
+  sqlSelectAll: SELECT * FROM abonents
+  sqlSelectById: SELECT * FROM abonents WHERE id = ?
+  sqlInsert: INSERT INTO abonents (first_name, last_name, phone, address) VALUES (?, ?, ?, ?)
+  sqlDelete: DELETE FROM abonents WHERE id = ?
+  sqlUpdate: UPDATE abonents SET `first_name` = ?, `last_name` = ?, `phone` = ?, `address` = ? WHERE `id` = ?
